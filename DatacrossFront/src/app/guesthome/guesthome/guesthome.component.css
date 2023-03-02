@@ -1,0 +1,96 @@
+html{
+margin-top: -2%;
+margin-left: -0.6%;
+margin-right: -0.6%;
+margin-bottom: 1%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+:root {
+scroll-behavior: smooth;
+}
+}
+.btn-primary:not(.btn-light):not(.btn-secondary), .wizard > .actions a:not(.btn-light):not(.btn-secondary) {
+  color: #ffffff;
+  padding: 20px 36px;
+  background-color: rgb(0, 143, 140);
+  
+  border: #000;
+}
+
+
+body {
+margin: 0;
+overflow-x: visible;
+font-family: var(--bs-body-font-family);
+font-size: var(--bs-body-font-size);
+font-weight: var(--bs-body-font-weight);
+line-height: var(--bs-body-line-height);
+color: var(--bs-body-color);
+text-align: var(--bs-body-text-align);
+background-color: var(--bs-body-bg);
+
+}
+
+/* Navbar */
+.navbar {
+  background-color: #22222200;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5em 1em;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler i {
+  margin-left: 0.5em;
+}
+
+/* Masthead */
+.masthead {
+  position: relative;
+width: 100%;
+height: auto;
+min-height: 35rem;
+padding: 15rem 0;
+background: linear-gradient(to bottom, rgba(20, -100, -100, 0.3) 0%, rgba(0, 0, 0, 0.7) 80%, #000 100%), url("src/assets/guesthome/assets/img/lsp.gif");
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: scroll;
+background-size: cover;
+}
+body, html {
+  overflow-x: auto;
+  padding-right: 0 !important;
+  background-color: #191c24;;
+}
+.hero {
+  margin-top: -5%;
+  font-size: 500%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .hero {
+    margin-top: -10%;
+    font-size: 200%;
+  }
+}
+
+
+.masthead h2 {
+  font-size: 2em;
+  font-weight: 400;
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+
+
+
+

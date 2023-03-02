@@ -1,0 +1,42 @@
+
+
+    <body  style="background-color: #010910;">
+        <div style="margin-left: 15%;" class="container p-0">
+            <div class="container-scroller">
+                <!-- partial:../../partials/_sidebar.html -->
+                
+                <!-- partial -->
+                <div class="container-fluid page-body-wrapper">
+                  <!-- partial:../../partials/_navbar.html -->
+                  
+                  <!-- partial -->
+                  <div class="main-panel">
+                    <div class="content-wrapper">
+    <H1>MEDIA LIBRARY<small style="font-size:medium;"><a [routerLink]="['/imageUpload']">Add new</a></small></H1>
+                       
+    <div   class="row">
+        <div *ngFor="let image of responseData" class="col-md-4 mb-5 mb-md-0">
+          <!-- Card -->
+          <div class="card d-block">
+            <div class="card-body d-flex align-items-center p-0">
+              <div class="w-65 border-right">
+                <img class="img-fluid" src="data:image/jpeg;base64,{{image.data}}"/>
+                </div>
+            </div>
+          </div>
+          <small style="text-align: center; font-size: x-small;" > ID:{{image.id}}</small> <Br> <a [routerLink]="['/mediaLibrary']" (click)="DeleteImage(image)">Delete</a>
+             <BR><BR>
+          <!-- End Card -->
+        </div>
+      
+        <div class="col-md-4">
+        
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </body>
+    

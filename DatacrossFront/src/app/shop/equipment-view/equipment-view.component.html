@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Page Title</title>
+   
+</head>
+<body  style="background-color: #010910;">
+    <div style="margin-left: 15%;" class="container p-0">
+        <div class="container-scroller">
+            <!-- partial:../../partials/_sidebar.html -->
+            
+            <!-- partial -->
+            <div class="container-fluid page-body-wrapper">
+              <!-- partial:../../partials/_navbar.html -->
+              
+              <!-- partial -->
+              <div class="main-panel">
+                <div class="content-wrapper">
+
+              
+    <div style="text-align: center;" class="">
+      <!-- Card -->
+      <div >
+        <div >
+          <div >
+            <img class="img-fluid" src="https://media.istockphoto.com/id/495732397/photo/black-wi-fi-router.jpg?s=612x612&w=0&k=20&c=KX1g5e0Fx48GZ_jIpSuUP1_jPkp6eAiJYFj2GYCzQoc=" alt="Image Description">
+          </div>
+
+        </div>
+        <div>
+          <div style="padding-top: 5%;" [innerHTML]="errorData"></div></div>
+        <div  class="card-footer text-center py-4">
+           <h3 class="h5 mb-1">{{responseData.equipName}}</h3>
+           <span class="d-block text-muted font-size-1 mb-3">Available at the Price of ₹{{responseData.price}} </span>
+           <span class="d-block text-muted font-size-1 mb-3">Equipment for {{responseData.deviceName}} </span>
+          <a (click)="addtoCart()" class="btn btn-sm btn-outline-primary btn-pill transition-3d-hover px-5">ADD TO CART</a>
+          
+        </div>
+      </div>
+      <!-- End Card -->
+    </div>
+  </div>
+                </div>
+              </div>
+            </div></div>
+            
+
+            </body>
+            </html>

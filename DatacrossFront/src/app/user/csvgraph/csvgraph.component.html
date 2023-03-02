@@ -1,0 +1,69 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/admindash/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/admindash/assets/images/favicon.png" />
+  </head><body style="background-color: #010910; ">
+    <div >
+  <div class="container" style=" text-align: center;">
+  <div style="margin-bottom:6%"><br></div>
+    <div class="card" style="background-color: #000000; margin-left:16%;" class="panel panel-default">
+  <div>
+  
+      <h1 style="color: #ffff; padding-top: 02%;">VIEW DATA </h1>
+  <div  style="text-align: center;">
+  <form [formGroup]="datebtw" (submit)="clickEvent()">
+  <input style="background-color: gray; color: #ffff;" type="date" min="{{this.currentdate}}" formControlName="startdate" name="StartDate"> &nbsp;
+  <input style="background-color: gray; color: #ffff;" size="10" type="date" formControlName="enddate"  name="EndDate"> &nbsp;
+  <br><br>
+  <div style="text-align: center;" >
+    <input type="radio" id="html"  formControlName="type" name="fav_language" value="1">
+  <label>Weekly Data</label> &nbsp; &nbsp;
+  <input type="radio"  formControlName="type" name="fav_language" value="2">
+  <label >Monthly Data</label>  &nbsp;  &nbsp;
+  <input type="radio"  formControlName="type"   name="fav_language" value="3">
+  <label >Yearly Data</label>
+  </div>
+  <input class="btn btn-primary " value="VIEW GRAPH" type="submit">
+  
+  </form>
+  </div>
+  <br>
+  
+  
+  
+  
+  <div style="margin-top:-10%; margin-bottom: 10%; margin-left:-10%;"  class="chart">
+    <div class="chart-container" style="position: relative;  margin-bottom: 15%;margin-top: 15%; margin-left: 20%; height:40vh; width: 60vw">
+    <canvas  id="MyChart" >{{mychart}}</canvas>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </div>
+  </div>
+  
+
+
+  
+  
+  
+  </body>

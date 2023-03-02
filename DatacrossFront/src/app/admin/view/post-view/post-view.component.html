@@ -1,0 +1,105 @@
+<div style="margin-left: 10%;">
+  <div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+
+          <div class="row ">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title">Posts <p> <a href="/createPost">Add New</a></p>
+                  </h3>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> Title </th>
+                          <th> Category </th>
+                          <th> View </th>
+                          <th> Status </th>
+                          <th> Edit </th>
+                          <th> Action </th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        *ngFor="let post of responseData | paginate: { itemsPerPage: tableSize, currentPage:count, totalItems:this.totalElements}; let i = index">
+                        <tr>
+                          <td> {{post.title}}</td>
+                          <td> {{post.categoryName}}</td>
+                          <td>
+                            <div>
+                              <a [routerLink]="['/post/',post.postId,post.slug,]">VIEW</a>
+                            </div>
+
+                          <td>
+                            <div *ngIf="post.status == '1'">
+                              <span class="status-span">🟢</span>
+                            </div>
+                            <div *ngIf="post.status == '0'">
+                              <span class="status-span">🔴</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="badge badge-outline-warning"><a [routerLink]="['/editPost',post.postId]">✏️</a>
+                            </div>
+                          </td>
+                          <td>
+                            <div *ngIf="post.status==1" class="badge badge-outline-danger"><a
+                                [routerLink]="['/postList']" (click)="deleteUser(post)">DRAFT</a></div>
+                            <div *ngIf="post.status==0" class="badge badge-outline-success"><a
+                                [routerLink]="['/postList']" (click)="PublishPost(post)">PUBLISH</a></div>
+                          </td>
+                        </tr>
+                      </tbody></table>
+                    <div class="center" style="text-align: center;">
+                      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/src/assets/admindash/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+  <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+  <script src="/src/assets/admindash/assets/js/misc.js"></script>
+  <script src="/src/assets/admindash/assets/js/settings.js"></script>
+  <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/src/assets/admindash/assets/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+
+</div>

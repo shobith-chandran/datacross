@@ -1,0 +1,159 @@
+<html>
+<body style="background-color: #010910;">
+	<div style="margin-left: 15%;" class="container p-0">
+		<div class="container-scroller">
+			<!-- partial:../../partials/_sidebar.html -->
+
+			<!-- partial -->
+			<div class="container-fluid page-body-wrapper">
+				<!-- partial:../../partials/_navbar.html -->
+
+				<!-- partial -->
+				<div class="main-panel">
+					<div class="content-wrapper">
+
+
+						<div class="card">
+							<div class="row g-0">
+								<div style="background-color: #010910;" class="col-12 col-lg-5 col-xl-3 border-right">
+
+									<div style="background-color: #010910;" class="px-4 d-none d-md-block">
+										<div class="d-flex align-items-center">
+											<div class="flex-grow-1">
+												<form (keyup)="onKeypressEvent($event)" [formGroup]="SearchFormGroup">
+													<input formControlName="keyword" type="text"
+														class="form-control my-3" placeholder="Search...">
+												</form>
+											</div>
+										</div>
+									</div>
+									<div *ngIf="searchUser==null">
+										<div *ngFor=" let user of users">
+											<a [routerLink]="['/chat',user.userId]"
+												class="list-group-item list-group-item-action border-0">
+												<div class="d-flex align-items-start">
+													<img src="https://bootdey.com/img/Content/avatar/avatar3.png"
+														class="rounded-circle mr-1" alt="Jennifer Chang" width="40"
+														height="40">
+													<div class="position-relative" class="flex-grow-1 ml-3">
+														<td>{{user.name | uppercase}}</td>
+														<div class="small">
+															<span class="fas fa-circle chat-offline"></span> Online</div>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div *ngIf="searchUser!==null">
+										<div *ngFor=" let user of searchUser">
+											<a [routerLink]="['/chat',user.userId]"
+												class="list-group-item list-group-item-action border-0">
+												<div class="d-flex align-items-start">
+													<img src="https://bootdey.com/img/Content/avatar/avatar3.png"
+														class="rounded-circle mr-1" alt="Jennifer Chang" width="40"
+														height="40">
+													<div class="position-relative" class="flex-grow-1 ml-3">
+														<td>{{user.name | uppercase}}</td>
+														<div class="small"><span
+																class="fas fa-circle chat-offline"></span> Online</div>
+													</div>
+												</div>
+											</a>
+										</div>
+									</div>
+
+									<hr class="d-block d-lg-none mt-1 mb-0">
+								</div>
+								<div style="background-color: #010910;" class="col-12 col-lg-7 col-xl-9">
+									<div class="py-2 px-4 border-bottom d-none d-lg-block">
+										<div class="d-flex align-items-center py-1">
+											<div class="position-relative">
+												<img src="https://bootdey.com/img/Content/avatar/avatar3.png"
+													class="rounded-circle mr-1" alt="Sharon Lessman" width="40"
+													height="40">
+											</div>
+											<div style="position: abosolute;" class="flex-grow-1 pl-3">
+												<strong>{{receiver.name | uppercase}}</strong>
+												<div class="text-muted small"><em>Online</em></div>
+											</div>
+											<div>
+											</div>
+										</div>
+									</div>
+
+									<div class="position-relative" style="margin-bottom: 10%;">
+										<div class="chat-messages  p-4">
+
+											<div *ngFor=" let mess of responseData" class="chat-message  pb-4">
+												<div *ngIf="mess.senderId==CurrentUser.userId">
+													<div class="chat-message-right pb-4">
+														<div class="text-muted small text-nowrap mt-2">{{mess.updatedate
+															| date:'shortTime'}}</div>
+													</div>
+												</div>
+												<div *ngIf="mess.senderId!=CurrentUser.userId">
+													<div class="chat-message-left pb-4">
+														<div class="text-muted small text-nowrap mt-2">{{mess.updatedate
+															| date:'shortTime' }}</div>
+													</div>
+												</div>
+												<div class="chat-message-left pb-6">
+
+													<div *ngIf="mess.senderId!=CurrentUser.userId"
+														class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+														<div *ngIf="mess.senderId!=CurrentUser.userId">
+															<div class="font-weight-bold mb-1">
+																<img src="https://cdn.pixabay.com/photo/2013/07/13/10/44/man-157699_960_720.png"
+																	class="rounded-circle mr-1" alt="Chris Wood"
+																	width="40" height="40">
+
+																{{receiver.name}}
+															</div>
+															<div>{{mess.message}}</div>
+														</div>
+
+													</div>
+												</div>
+
+												<div class="chat-message-right pb-6">
+													<div *ngIf="mess.senderId==CurrentUser.userId"
+														class="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
+														<tr *ngIf="mess.senderId==CurrentUser.userId">
+															<div class="font-weight-bold mb-1">
+																<img src="https://cdn.pixabay.com/photo/2013/07/13/10/44/man-157699_960_720.png"
+																	class="rounded-circle mr-1" alt="Chris Wood"
+																	width="40" height="40">
+																{{CurrentUser.name}}
+															</div>
+															<div>{{mess.message}}</div>
+														</tr>
+
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+									<div>
+										<form style="position:relative; margin-top: -10%;" [formGroup]="FormGroup"
+											(submit)="sendChat()">
+											<div class="flex-grow-0 py-3 px-3 border-top">
+												<div class="input-group">
+
+													<td><input type="text" formControlName="message"
+															placeholder="Type your message"> <button
+															class="btn btn-primary">Send</button></td>
+
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

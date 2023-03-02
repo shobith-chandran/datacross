@@ -1,0 +1,48 @@
+<body style="background-color: #010910;">
+  <div style="margin-left: 15%;" class="container p-0">
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <h1 style="text-align:center">UPDATES</h1>
+            <div style="margin-top: 5%;" class="row">
+              <div *ngFor="let post of responseData" class="col-md-4 mb-5 mb-md-0">
+                <!-- Card -->
+
+                <div class="card d-block">
+                  <a style="text-decoration: none; color: #fff;" [routerLink]="['/post/',post.postId,post.slug,]">
+                    <div class="card-body d-flex align-items-center p-0">
+                      <div class="w-65 border-right">
+                        <img class="img-fluid" src="data:image/jpeg;base64,{{post.headerImage}}" />
+                      </div>
+
+                    </div>
+                    <div class="card-footer text-center py-4">
+                      <h1 class="h3 mb-3">{{post.title | uppercase}}</h1>
+                      <span class="d-block text-muted font-size-1 mb-3">By {{post.author}}<br> <small>{{post.createDate|
+                          date}}</small> </span>
+                      <a class="btn btn-sm btn-outline-primary btn-pill transition-3d-hover px-5"
+                        [routerLink]="['/post/',post.postId,post.slug,]">Read more</a>
+                    </div>
+                  </a>
+                </div>
+
+                <br>
+                <!-- End Card -->
+              </div>
+              <div class="col-md-4">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,258 @@
+<html  style="overflow: hidden;">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/assets/admindash/assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/assets/admindash/assets/images/favicon.png" />
+</head>
+
+<body *ngIf="username!==null" style="background-color: #010910;" style="margin-bottom:-50%; overflow: hidden; position: fixed;">
+  <div >
+<nav style="background-color: #010910;" class="sidebar sidebar-offcanvas" id="sidebar">
+    <div style="background-color: #010910;" class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+      <a class="sidebar-brand brand-logo" style="color: #ffff;" href="index.html">DATACROSS</a>
+      <a class="sidebar-brand brand-logo-mini" href="">DA</a>
+    </div>
+    <div>
+     
+      <ul class="nav">
+        <li class="nav-item profile">
+          <div class="profile-desc">
+            <div class="profile-pic">    
+
+              <div class="profile-name">
+                <h3 style="margin-top: -5%;" style="color: #ffff;">{{this.username}}</h3>
+                <span style="font-size: medium;">Datacross</span>
+              </div>
+            </div>
+            <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+            <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
+              aria-labelledby="profile-dropdown">
+              <a href="#" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-settings text-primary"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1 text-small">Account settings</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-onepassword  text-info"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                </div>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-dark rounded-circle">
+                    <i class="mdi mdi-calendar-today text-success"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li *ngIf="showAdminBoard" class="nav-item menu-items">
+          <a [routerLink]="['/adminhome']"  class="nav-link">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li *ngIf="showUserBoard" class="nav-item menu-items">
+          <a [routerLink]="['/userdash']"  class="nav-link">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li><div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+          <a class="navbar-brand brand-logo-mini" href=""><img src="/assets/admindash/assets/images/logo-mini.svg" alt="logo" /></a>
+        </div></li>
+        <li *ngIf="showAdminBoard" class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" [routerLink]="['/adminhome']"  aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Organization</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div>
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['/orgregistration']" >Register Organization</a></li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['/orgview']" >View Organization</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+
+        <li *ngIf="showAdminBoard" class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse" [routerLink]="['/adminhome']"  aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title"> Devices</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div>
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link"  [routerLink]="['/deviceregistration']" >Register Devices</a></li>
+              <li class="nav-item"> <a class="nav-link"  [routerLink]="['/deviceview']" >View Devices</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <li *ngIf="showAdminBoard" class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse"  [routerLink]="['/adminhome']" href="/adminhome" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">User</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div>
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['/user']" >Register User</a></li>
+
+              <li class="nav-item"> <a class="nav-link"  [routerLink]="['/userview']" >View User</a></li>
+            </ul>
+          </div>
+        </li>
+        <li *ngIf="showUserBoard" class="nav-item menu-items">
+          <a [routerLink]="['/userprofile']" class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Profile</span>
+          </a>
+
+        </li>
+        <li *ngIf="showUserBoard" class="nav-item menu-items">
+          <a [routerLink]="['/org']"  class="nav-link" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Organization</span>
+          </a>
+
+        </li>
+
+
+        <li *ngIf="showUserBoard" class="nav-item menu-items">
+          <a class="nav-link" data-toggle="collapse"   [routerLink]="['/userdash']" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Devices</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div>
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link"  [routerLink]="['/userdevicereg']"  >Register Devices</a></li>
+              <li class="nav-item"> <a class="nav-link" [routerLink]="['/userdevice']" >View Devices</a></li>
+            </ul>
+          </div>
+        </li>
+        <li *ngIf="showUserBoard"class="nav-item menu-items">
+          <a [routerLink]="['/cart']"  class="nav-link" data-toggle="collapse" aria-expanded="false"
+            aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">View Cart</span>
+          </a>
+
+        </li>
+        <li *ngIf="showUserBoard"class="nav-item menu-items">
+          <a  [routerLink]="['/cart']" class="nav-link" data-toggle="collapse" aria-expanded="false"
+            aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Orders</span>
+          </a>
+
+        </li>
+        <li *ngIf="showUserBoard"class="nav-item menu-items">
+          <a  [routerLink]="['/passwordreset']"  class="nav-link" data-toggle="collapse" aria-expanded="false"
+            aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Change Password</span>
+          </a>
+
+        </li>
+        <li *ngIf="showUserBoard" class="nav-item menu-items">
+          <a class="nav-link" href="/"(click)="logout()" data-toggle="collapse" aria-expanded="false"
+            aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Logout</span>
+          </a>
+
+        </li>
+        <li *ngIf="showAdminBoard"class="nav-item menu-items">
+          <a [routerLink]="['/passwordreset']"  class="nav-link" data-toggle="collapse" aria-expanded="false"
+            aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Change Password</span>
+          </a>
+
+        </li>
+        <li *ngIf="showAdminBoard" class="nav-item menu-items">
+          <a class="nav-link" href="/" (click)="logout()" data-toggle="collapse" aria-expanded="false"
+            aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Logout</span>
+          </a>
+
+        </li>
+
+      </ul>
+    </div>
+
+
+
+  </nav>
+</div>
+
+</body>
+
+</html>

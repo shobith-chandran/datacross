@@ -1,0 +1,32 @@
+ /*-------------------------------------------------------------------*/
+  /* === Landing screens === */
+  /* Auth */
+ 
+  @media screen and (max-width: 768px) {
+    .auth.login-bg {
+      background: linear-gradient(to bottom, rgba(20, 0, 10, 0.5) 0%, rgba(0, -100, -100, 0.7) 100%), url("src/assets/guesthome/assets/img/lsp.gif");
+      background-size: cover;
+    }
+  }
+  .auth.login-bg {
+    background: linear-gradient(to bottom, rgba(20, 0, 10, 0.3) 0%, rgba(0, -100, -100, 0.7) 100%, #000 100%), url("src/assets/guesthome/assets/img/lsp.gif");
+    background-size: cover; }
+  
+  .auth .login-half-bg {
+    background: url("src/assets/guesthome/assets/img/lsp.gif");
+    background-size: cover; }
+  
+  .auth.register-half-bg {
+    background: url("src/assets/guesthome/assets/img/lsp.gif");
+    background-size: cover; }
+  
+  .auth.lock-full-bg {
+    background: url("/assets/admindash/assets/images/samples/TestyDisloyalChinchilla.mp4");
+    background-size: cover; }
+  
+  .auth .lock-profile-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%; }
+  
+  

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="background-color: #010910;"  lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CSV</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/src/assets/admindash/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/src/assets/admindash/assets/images/favicon.png" />
+  </head>
+  <body style="margin-left: 12%;margin-right:-4%;margin-bottom: 20%; background-color: #010910;;" >
+    <div  >
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div  style="background-color: #010910;"  class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+                <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+              
+            <div class="row ">
+              <div class="col-12 grid-margin">
+                <div  class="card">
+                  <div style="background-color: #010910; margin-left: -0%; margin-right: -0%;"  class="card-body">
+                    <h4 class="card-title">Devices</h4>
+                    <div class="table-responsive">
+                      <table class="table" style="background-color: #010910;">
+                        <thead style="background-color: #010910;">
+                          <tr>
+                            <th>Device Name </th>
+                            <th>Description </th>
+                            <th>Upload Data </th>
+                            <th>View Data </th>
+                            <th>View Graph</th>
+                            <th>Edit Device</th>
+                            <th>Delete Device</th>
+                          </tr>
+                        </thead>
+                        <tbody style="background-color: #010910;">
+                          <tr *ngFor="let device of DeviceData">
+                            <td> {{device.deviceName}}</td>
+                            <td> {{device.description}}</td>
+                            <td>
+                              <div><a style="text-align: center;" [routerLink]="['/csvdata',device.deviceId,device.deviceName]"><img src="/assets/admindash/assets/images/upload.png" alt=""></a></div>
+                            </td>
+                         
+                            <td>
+                           <a style="text-align: center;" [routerLink]="['/csvtableview',device.deviceId,device.deviceName]">👁️</a>
+                            </td>
+                            <td>
+                       <a style="text-align: center;" [routerLink]="['/csvgraphview',device.deviceId,device.deviceName]">📊</a>
+                            </td>
+                            <td *ngIf="device.userRole=='admin'">
+                              <div class="badge badge-outline-secondary"><a >✏️</a></div>
+                            </td>
+                            <td *ngIf="device.userRole!=='admin'">
+                              <div class="badge badge-outline-warning"><a [routerLink]="['/userDeviceedit',device.deviceId,device.orgName]">✏️</a></div>
+                            </td>
+                            <td *ngIf="device.userRole=='admin'">
+                              <div class="badge badge-outline-secondary"><a >❌</a></div>
+                            </td>
+                            <td *ngIf="device.userRole!=='admin'">
+                              <div class="badge badge-outline-danger"><a [routerLink]="['/userdevice']" (click)="deleteDev(device)">❌</a></div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+           
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/src/assets/admindash/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+    <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+    <script src="/src/assets/admindash/assets/js/misc.js"></script>
+    <script src="/src/assets/admindash/assets/js/settings.js"></script>
+    <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/src/assets/admindash/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

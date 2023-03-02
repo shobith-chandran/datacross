@@ -1,0 +1,62 @@
+<body style="padding-bottom: 10%;background-color:#010910;">
+  <!-- partial:../../partials/_sidebar.html -->
+
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+    <!-- partial:../../partials/_navbar.html -->
+
+    <!-- partial -->
+
+    <div style="margin-bottom:10%;" class="content-wrapper">
+
+
+      <div style=" margin-top: 10%; margin-bottom: -35%; " class="">
+        <div class="row d-flex justify-content-center align-items-center ">
+          <div class="col col-md col-lg-7 col-xl-5">
+            <div class="card" style=" background-color:#010910;">
+              <div class="card-body ">
+                <div class="d-flex text-black">
+                  <div class="flex-shrink-0">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY5KNGTkcSvBoZEhq6CrCYlVZ1REP0Gsg3CQ&usqp=CAU"
+                      class="img-fluid" style="width: 100px; border-radius: 10px;">
+                  </div>
+
+                  <div style="margin-left:5%;" class="flex-grow-1 ms-3">
+                    <h3 style="color: #ffffff;" class="mb-1">{{device.deviceName | uppercase}}</h3>
+
+                    <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                      style="background-color: #282f37; border-radius: 0%;">
+                      <div>
+                        <p class="large text-muted mb-1"> Used By : {{device.orgName}}</p>
+                      </div>
+
+                    </div>
+                    <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #282f37;">
+                      <div>
+                        <p class="large text-muted mb-1"> Description : {{device.discription}}</p>
+                      </div>
+
+                    </div>
+                    <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #282f37;">
+                      <div *ngIf="device!==null">
+                        <p class="large text-muted mb-1"> Status : 🟢 Active</p>
+                      </div>
+
+                    </div>
+                    <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #282f37;">
+                      <div>
+                        <p class="large text-muted mb-1"> Active From : {{device.createDate | date: 'mediumDate'}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>

@@ -1,0 +1,104 @@
+
+
+<div style="margin-left: 10%;">
+  <div class="container-scroller">
+    <!-- partial:partials/_sidebar.html -->
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+
+          <div class="row ">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">USERS</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> User Name </th>
+                          <th> Organization Name </th>
+                          <th> Contact </th>
+                          <th> Status </th>
+                          <th> Action</th>
+                        </tr>
+                      </thead>
+                      <tbody
+                        *ngFor="let user of responseData | paginate: { itemsPerPage: tableSize, currentPage:count, totalItems:this.totalElements}; let i = index">
+                        <tr>
+                          <td> {{user.name}}</td>
+                          <td> {{user.orgName}}</td>
+                          <td> {{user.email}}</td>
+                          <td>
+                            <div *ngIf="user.status == '1'">
+                              <span class="status-span">🟢 Active</span>
+                            </div>
+                            <div *ngIf="user.status == '0'">
+                              <span class="status-span">🔴 Inactive</span>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="badge badge-outline-warning"><a
+                                [routerLink]="['/useredit',user.userId]">Edit</a></div>
+                          </td>
+                          <td>
+                            <div class="badge badge-outline-danger"><a [routerLink]="['userview']"
+                                (click)="deleteUser(user)">Delete</a></div>
+                          </td>
+                        </tr>
+                      </tbody>
+
+                    </table>
+                    
+                    <div class="center">
+                      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="/src/assets/admindash/assets/vendors/chart.js/Chart.min.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="/src/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+  <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+  <script src="/src/assets/admindash/assets/js/misc.js"></script>
+  <script src="/src/assets/admindash/assets/js/settings.js"></script>
+  <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="/src/assets/admindash/assets/js/dashboard.js"></script>
+  <!-- End custom js for this page -->
+
+</div>

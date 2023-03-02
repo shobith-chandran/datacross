@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <header>
+    </header>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>LOGIN</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/assets/admindash/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/assets/admindash/assets/images/favicon.png" />
+    
+  </head>
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="row w-100 m-0">
+          <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+            <div class="card col-lg-4 mx-auto">
+              <div class="card-body px-5 py-5">
+                <h3 class="card-title text-left mb-3">Login</h3>
+                <form [formGroup]="loginformGroup" (submit)="loginProcess()">
+                  <div class="form-group">
+                    <label>Email *</label> 
+                    <input class="form-control p_input" type="text" name="email" formControlName="email" placeholder="Enter Email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <span class="text-danger" *ngIf="loginformGroup.controls['email'].touched && loginformGroup.hasError('required','email')"><i>Email is required</i></span>
+                    <span class="text-danger" *ngIf="loginformGroup.controls['email'].touched && loginformGroup.hasError('pattern','email')"><i>Email Should be Valid</i> </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Password *</label>
+                    <input class="form-control p_input"  type="password" placeholder="Enter password" formControlName="password"  name="password"  minlength="8" pattern='(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,20}' required>
+                    <span class="text-danger" *ngIf="loginformGroup.controls['password'].touched && loginformGroup.hasError('required','password')"><i>Password is required</i></span>
+                    <span class="text-danger" *ngIf="loginformGroup.controls['password'].touched && loginformGroup.hasError('pattern','password')"><i>Password Should be Valid</i></span>
+                    <span class="text-danger" *ngIf="loginformGroup.controls['password'].touched && loginformGroup.hasError('minlength(8)','password')"><i>Password Should be greater than 8 charater</i></span>
+
+                  </div>
+                  <div class="form-group d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input"> Remember me </label>
+                    </div>
+                    <a href="/passwordreset" class="forgot-pass">Forgot password</a>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                  </div>
+                </form>
+                <asl-google-signin-button *ngIf="!user"> </asl-google-signin-button>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- row ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/assets/admindash/assets/js/off-canvas.js"></script>
+    <script src="/assets/admindash/assets/js/hoverable-collapse.js"></script>
+    <script src="/assets/admindash/assets/js/misc.js"></script>
+    <script src="/assets/admindash/assets/js/settings.js"></script>
+    <script src="/assets/admindash/assets/js/todolist.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

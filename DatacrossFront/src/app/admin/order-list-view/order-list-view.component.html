@@ -1,0 +1,104 @@
+<body style="color: #010910; margin-left:10%;">
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+              
+            <div class="row ">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Devices</h4>
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th> Id </th>
+                            <th> Username</th>
+                            <th> Amount(₹) </th>
+                            <th> RazorPay Id</th>
+                            <th> Payment Status</th>
+                            <th> Shipping Status </th>
+                            <th> Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let order of responseData | paginate: { itemsPerPage: tableSize, currentPage:count, totalItems:this.totalElements}; let i = index">
+                            <td> {{order.orderId}}</td>
+                            <td> {{order.userName}}</td>
+                            <td> {{order.amount}}</td>
+                            <td> {{order.razorPayId}}</td>
+                            <td> <div *ngIf="order.status == '1'">
+                              <span class="status-span">🟢 Success</span>
+                          </div>
+                          <div *ngIf="order.status == '2'">
+                            <span class="status-span">🟡 Processing</span>
+                        </div>
+                        <div *ngIf="order.status == '0'">
+                            <span class="status-span"> 🔴  Failed</span>
+                        </div></td>
+                        <td> <div *ngIf="order.shippingStatus == '1'">
+                            <span class="status-span">🟢 Success</span>
+                        </div>
+                        <div *ngIf="order.shippingStatus == '2'">
+                          <span class="status-span">🟡 Processing</span>
+                      </div>
+                      <div *ngIf="order.shippingStatus == '0'">
+                          <span class="status-span"> 🔴  Failed</span>
+                      </div></td>
+                          <td> {{order.createDate}}</td>
+                        <td> </td>
+                           
+                           
+
+
+                          </tr>
+                        </tbody>
+                    </table> <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+          <footer class="footer">
+          
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/src/assets/admindash/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+    <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+    <script src="/src/assets/admindash/assets/js/misc.js"></script>
+    <script src="/src/assets/admindash/assets/js/settings.js"></script>
+    <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/src/assets/admindash/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
+  </body>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/src/assets/admindash/assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/src/assets/admindash/assets/images/favicon.png" />
+</head>
+
+<body style="margin-left:11%;">
+  <div class="container-scroller">
+    <!-- partial:../../partials/_sidebar.html -->
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:../../partials/_navbar.html -->
+
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div style="margin-right:-5%;" class="row">
+            <div style="margin-left:25%;" class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">CREATE POST</h2>
+                  <p class="card-description"> Crete Blog post for Users!</p>
+                  <form [formGroup]="postformGroup" (submit)="CretePost()" class="forms-sample">
+                   
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Header Image</label>
+                      <div class="image-dropdown" appImageDropdown>
+                        <div class="image-dropdown-label">
+                          <label for="image"></label>
+                          <img src="data:image/jpeg;base64,{{selectedImage}}" alt="selected image">
+                        </div>
+                        <div style="padding-bottom: 10%;" class="image-dropdown-content">
+                          <div class="img">
+                            <img *ngFor="let image of imageData" src="data:image/jpeg;base64,{{image.data}}" alt="image"
+                              (click)="selectImage(image)">
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Title</label>
+                      <input type="text" class="form-control" formControlName="title" placeholder=" title">
+                      <span class="text-danger"
+                        *ngIf="postformGroup.controls['title'].touched && postformGroup.hasError('required','title')"><i>Device
+                          name is required</i></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Slug</label>
+                      <input type="text" class="form-control" formControlName="slug" placeholder=" slug">
+                      <span class="text-danger"
+                        *ngIf="postformGroup.controls['slug'].touched && postformGroup.hasError('required','slug')"><i>Device
+                          name is required</i></span>
+
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Category</label>
+                      <input type="text" class="form-control" formControlName="categoryId" placeholder=" slug">
+                      <span class="text-danger"
+                        *ngIf="postformGroup.controls['categoryId'].touched && postformGroup.hasError('required','categoryId')"><i>Category
+                          name is required</i></span>
+
+                    </div>
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Content</label>
+
+                      <textarea type="textarea" class="form-control" formControlName="content"
+                        placeholder="content"></textarea>
+                      <span class="text-danger"
+                        *ngIf="postformGroup.controls['content'].touched && postformGroup.hasError('required','content')"><i>Content
+                          required</i></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-dark">Cancel</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/src/assets/admindash/assets/vendors/select2/select2.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+    <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+    <script src="/src/assets/admindash/assets/js/misc.js"></script>
+    <script src="/src/assets/admindash/assets/js/settings.js"></script>
+    <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/src/assets/admindash/assets/js/file-upload.js"></script>
+    <script src="/src/assets/admindash/assets/js/typeahead.js"></script>
+    <script src="/src/assets/admindash/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+  </div>
+</body>
+
+</html>

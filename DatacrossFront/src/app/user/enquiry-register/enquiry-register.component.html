@@ -1,0 +1,65 @@
+<body style="margin-left:11%;">
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+        
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div style="margin-right:-5%;" class="row">
+              <div style="margin-left:25%;" class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="card-title">SEND YOUR QUERIES</h2>
+                    <p class="card-description">   </p>
+                    <form [formGroup]="QueryForm" (submit)="devreg()" class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Enter your Query!</label>
+  
+                        <textarea type="textarea" class="form-control"  formControlName="content"
+                          placeholder="..."></textarea>
+                        <span class="text-danger"
+                          *ngIf="QueryForm.controls['content'].touched && QueryForm.hasError('required','content')"><i>Content
+                            required</i></span>
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+    </div>          
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+         
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/src/assets/admindash/assets/vendors/select2/select2.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+    <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+    <script src="/src/assets/admindash/assets/js/misc.js"></script>
+    <script src="/src/assets/admindash/assets/js/settings.js"></script>
+    <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/src/assets/admindash/assets/js/file-upload.js"></script>
+    <script src="/src/assets/admindash/assets/js/typeahead.js"></script>
+    <script src="/src/assets/admindash/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    </div>
+  </body>

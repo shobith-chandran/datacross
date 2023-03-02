@@ -1,0 +1,113 @@
+<html style="background-color: #010910;"><head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/jvectormap/jquery-jvectormap.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/admindash/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <!-- endinject -->
+  <!-- Layout styles -->
+  <link rel="stylesheet" href="/assets/admindash/assets/css/style.css">
+  <!-- End layout styles -->
+  <link rel="shortcut icon" href="/assets/admindash/assets/images/favicon.png" />
+</head><body style="background-color: #010910; margin-bottom: 20%; ">
+  <div >
+<div class="container" style=" text-align: center;">
+<div style="margin-bottom:6%"><br></div>
+  <div class="card" style="background-color: #000000; margin-left:16%;" class="panel panel-default">
+    &nbsp;
+
+  
+<section style="margin-top:2%">
+    <div style="margin-left: 10%;margin-right:10%;" class="card">
+    <h2 style="color: #ffff; padding-top: 5%;">UPLOAD CSV OF {{device | uppercase}}</h2>
+    <br><strong style="color: #ffff;">Select files from your system</strong>
+    <div>
+    <form enctype="multipart/form-data"><nav></nav>
+        <fieldset>
+          <div class="form-group">
+            <div>
+              <input  style="margin-left:18%; padding-top: 10px;padding-bottom: 5%"  type="file" (change)="onUploadFiles($any($event).target.files)" name="files" > <br>
+   
+            </div>
+          </div>
+        </fieldset>
+      </form >
+    </div>
+    </div>
+  </section>
+
+
+
+<div>
+
+    <!-- <h1 style="color: #ffff; padding-top: 10%;">View Data </h1> -->
+<!-- <div  style="text-align: center;">
+<form [formGroup]="datebtw" (submit)="clickEvent()">
+<input style="background-color: gray; color: #ffff;" type="date" min="{{this.currentdate}}" formControlName="startdate" name="StartDate"> &nbsp;
+<input style="background-color: gray; color: #ffff;" size="10" type="date" formControlName="enddate"  name="EndDate"> &nbsp;
+<br><br>
+<div style="text-align: center;" >
+  <input type="radio" id="html"  formControlName="type" name="fav_language" value="1">
+<label>Weekly Data</label> &nbsp; &nbsp;
+<input type="radio"  formControlName="type" name="fav_language" value="2">
+<label >Monthly Data</label>  &nbsp;  &nbsp;
+<input type="radio"  formControlName="type"   name="fav_language" value="3">
+<label >Yearly Data</label>
+</div>
+<input type="submit">
+
+</form>
+</div> -->
+<br>
+
+
+
+<!-- <div style="margin-top:-10%; margin-bottom: 10%; margin-left:-10%;"  class="chart">
+  <div class="chart-container" style="position: relative; margin-top: 15%;  margin-left: 20%; height:40vh; width: 60vw">
+  <canvas  id="MyChart" >{{mychart}}</canvas>
+
+</div>
+</div> -->
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- <div  style="margin-left: 20%;" class="content-wrapper">
+              
+  <div class="row ">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Devices</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+              
+                <th *ngFor="let user of Dates">{{user}}</th>
+            <tr>
+              <td *ngFor="let user of section1In">{{user}}</td></tr>
+              <tr> <td *ngFor="let user of section1Out">{{user}}</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+</body></html>

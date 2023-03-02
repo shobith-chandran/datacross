@@ -1,0 +1,51 @@
+<html style="background-color: #010910;">
+<body style="margin-bottom: 20%;background-color: #010910;">
+  <div  style="text-align: center; background-color: #000; margin-left:12%; margin-top:10%;">
+    <div ><br><br></div>
+    <h1 >EXPORT DATA</h1>
+    <form [formGroup]="datebtw" (submit)="clickEvent()">
+    <input style="background-color: gray; color: #ffff;" type="date" min="{{this.currentdate}}" formControlName="startdate" name="StartDate"> &nbsp;
+    <input style="background-color: gray; color: #ffff;" size="10" type="date" formControlName="enddate"  name="EndDate"> &nbsp;
+    <br><br>
+    <div style="text-align: center;" >
+      <input type="radio" id="html"  formControlName="type" name="fav_language" value="1">
+    <label>Weekly Data</label> &nbsp; &nbsp;
+    <input type="radio"  formControlName="type" name="fav_language" value="2">
+    <label >Monthly Data</label>  &nbsp;  &nbsp;
+    <input type="radio"  formControlName="type"   name="fav_language" value="3">
+    <label >Yearly Data</label>
+    </div>
+    <input class="btn btn-primary" type="submit">
+    </form>
+    <div><br><br></div>
+    </div>
+
+<div *ngIf="chartdata!=null" style=" margin-bottom: 0%; margin-left: 20%;margin-right: 1%;">
+              
+    <div style="background-color: black;" class="row ">
+      <div class="col-12 grid-margin">
+        <div style="background-color: #010910;"  class="card">
+          <div class="card-body">
+            
+            <div style="margin-right: 2%;" class="">
+              <table id="excel-table" style="margin-right:2%;" class="table">
+                <tbody>
+                  <h4 class="card-title">DATA FROM {{device | uppercase}}</h4>
+                   <tr><td></td><td style="font-size:78%;" *ngFor="let user of Dates">{{user}}</td>
+
+                    <tr><td >IN</td><td style="font-size:small;" *ngFor="let user of section1In">{{user}}</td></tr>
+               
+                  <tr><td >OUT</td><td style="font-size:small;" *ngFor="let user of section1Out">{{user}}</td></tr>
+                <tr> </tr>
+              </tbody>
+              </table>
+            </div>
+          </div>
+        </div><div   style="text-align: center; padding-top: 2%;">
+        <button class="btn btn-primary "  (click)="exportexcel()">EXPORT AS EXCEL </button >
+         &nbsp;  <button class="btn btn-primary" (click)="openPDF()">EXPORT AS PDF</button>
+      </div></div>
+    </div>
+  </div>
+</body>
+</html>

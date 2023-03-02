@@ -1,0 +1,91 @@
+<body style="margin-left: 12%;margin-right:-4%;margin-bottom: 20%; background-color: #010910;;">
+  <div>
+    <!-- partial:partials/_sidebar.html -->
+
+    <!-- partial -->
+    <div style="background-color: #010910;" class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_navbar.html -->
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+
+          <!-- Page Content -->
+          <div class="container">
+
+            <div class="row">
+
+              <!-- Blog Entries Column -->
+              <div class="col-md-8">
+                <div>
+                  <h2 class="my-2">{{responseData.title | titlecase }}
+                  </h2>
+                  By {{responseData.author}}<br>
+                <small>  {{responseData.createDate | date}}</small>
+                </div>
+
+                <!-- Blog Post -->
+                <div class="card mb-4">
+                  <img src="data:image/jpeg;base64,{{responseData.headerImage}}" />
+
+                  <div class="card-body">
+                    <p class="card-text">{{responseData.content}}</p>
+                  </div>
+
+                </div>
+
+
+              </div>
+
+              <!-- Sidebar Widgets Column -->
+              <div style="padding-top: 8.5%;" class="col-md-4">
+
+                <!-- Search Widget -->
+                <!-- <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div> -->
+
+
+                <div *ngFor="let post of BlogList" class="card my-4" >
+                  <a (click)="divReload(post)" class="anchorTag"  [routerLink]="['/post/',post.postId,post.slug,]">
+                    <h3 class="card-header">{{post.title | titlecase}}</h3>
+                    <div class="card-body">
+                      <p>{{post.createDate|date}}</p>
+                      <img class="card-img-top" src="data:image/jpeg;base64,{{post.headerImage}}"/>
+                    </div>
+                  </a>
+                </div>
+                <!-- tweeter -->
+
+
+              </div>
+              <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+            <!--footer-->
+
+            <!-- Bootstrap core JavaScript -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+              integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+              crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+              integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+              crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+              integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+              crossorigin="anonymous"></script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

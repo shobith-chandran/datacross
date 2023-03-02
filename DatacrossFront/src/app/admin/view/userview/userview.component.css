@@ -1,0 +1,18 @@
+
+.card-body{
+  background-color: #010910;;
+}
+
+.container-scroller {
+  /* overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #010910;;
+  display: flex;
+  position: relative; */
+}
+
+.center{
+  text-align: center;
+  margin-left: -10%;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Page Title</title>
+  <script data-require="jquery@3.1.1" data-semver="3.1.1"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="" />
+  <script src="script.js"></script>
+
+</head>
+
+<body style="background-color: #010910;">
+  <div style="margin-left: 15%;" class="container p-0">
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+
+        <!-- partial -->
+        <div class="main-panel">
+          <div  class="content-wrapper">
+            
+            <div>
+            <h1 *ngIf="responseData[0].userName!=undefined"  style="text-align: center;">CART</h1>
+            <li style="background-color: #010910;" *ngFor="let cart of responseData" class="card py-3 mb-5">
+              <div class="row">
+                <div class="col-4 pr-0">
+                  <div class="bg-img-hero-center rounded-left h-100"
+                    style="background-image: url(/assets/guesthome/assets/img/ipad.png);"></div>
+                </div>
+                <div class="col-8">
+                  <div class="card-body py-5 px-md-4">
+                    <div class="mb-2">
+                      <a class="d-inline-block text-secondary small font-weight-medium mb-1"
+                        href="#">{{cart.equipName}}</a>
+                      <h2 class="h6 font-weight-normal">
+                        <form [formGroup]="formGroup" (change)="QuantityUpdate(cart)">
+                          <span>Quantity:<input type="text" style="width: 5%;" value="{{cart.totalPrice / cart.price }}"><input formControlName="quantity" style="width: 3.8%;" type="number"
+                              [ngModel]="cart.quantity"></span>
+                        </form>
+                        <!-- <form [formGroup]="formGroup" (click)="AddQuantity(cart)">
+                        <button >+</button></form> -->
+                      </h2>
+                      <div class="d-block">
+                        <span>Price:₹{{cart.price}}</span>
+                      </div>
+                      <div class="d-block">
+                        <span>Total Price:₹{{cart.totalPrice}}
+                          
+                        </span>
+                      </div>
+                    </div>
+
+                    <button type="button" (click)="deleteEquip(cart)"
+                      class="btn btn-sm btn-outline-primary btn-sm-wide btn-pill transition-3d-hover mr-1">Remove</button>
+                  </div>
+
+                </div>
+              </div>
+            </li>
+            <div *ngIf="responseData[0].userName!=undefined">
+            <h2>GRAND Total: ₹{{ responseData | sum:"totalPrice"}} </h2> <button (click)="paynow()"ass="button">CHECK OUT</button>
+          </div>
+          <h2 *ngIf="responseData[0].cartId">CART IS EMPTY</h2> 
+          </div>
+          
+        </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

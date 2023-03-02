@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html style="background-color: #010910;" lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="/src/assets/admindash/assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="/src/assets/admindash/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="/src/assets/admindash/assets/images/favicon.png" />
+  </head>
+  <body style="background-color: #010910;"style="margin-left:11%;">
+    <div style=" padding-left: -19%; background-color: #010910;margin-left: 2.5% ; margin-right:-10%;"  class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div style="background-color: #010910;"  class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+        
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div style="margin-right:-5%;" class="row">
+              <div style="margin-left:25%;" class="col-md-6 grid-margin stretch-card">
+                <div style="background-color: #010910;"  class="card">
+                  <div class="card-body">
+                    <h2 class="card-title">EDIT DEVICE</h2>
+                    <p class="card-description"> Edit Devices for the Organizations  </p>
+                    <form [formGroup]="orgformGroup" (submit)="editDevice()" class="forms-sample">
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Device Name</label>
+                        <input type="text" [ngModel]="getDevice.deviceName" class="form-control" formControlName="deviceName" placeholder="deviceName">
+                      </div>
+
+                        <!-- <select placeholder="yeah" [(ngModel)]="getDevice.orgName" class="form-control"  type="input" formControlName="orgId"   >
+                       <option [value]="id" selected >
+                        {{device}}</option>
+                        <option *ngFor="let org of orgData" [value]="org.orgId" >
+                         {{org.orgName}}
+                        </option> 
+                        </select> -->
+
+                        
+
+                    
+                      <div class="form-group">
+                        <label >Device Description</label>
+                        <input type="text" class="form-control" [ngModel]="getDevice.description" formControlName="description" placeholder="Description">
+                      
+                      
+                      </div>
+                      <!-- <div class="form-check form-check-flat form-check-primary">
+                        <label class="form-check-label">
+                         <input type="checkbox" class="form-check-input"> Remember me </label>
+                      </div> -->
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+    </div>          
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+         
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/src/assets/admindash/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="/src/assets/admindash/assets/vendors/select2/select2.min.js"></script>
+    <script src="/src/assets/admindash/assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="/src/assets/admindash/assets/js/off-canvas.js"></script>
+    <script src="/src/assets/admindash/assets/js/hoverable-collapse.js"></script>
+    <script src="/src/assets/admindash/assets/js/misc.js"></script>
+    <script src="/src/assets/admindash/assets/js/settings.js"></script>
+    <script src="/src/assets/admindash/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="/src/assets/admindash/assets/js/file-upload.js"></script>
+    <script src="/src/assets/admindash/assets/js/typeahead.js"></script>
+    <script src="/src/assets/admindash/assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    </div>
+  </body>
+</html>
